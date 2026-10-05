@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F4F8FB] text-[#0F2137] font-sans antialiased;
+    font-feature-settings: "tnum" 1, "cv02" 1, "cv03" 1;
+  }
+
+  /* Accessible focus ring */
+  *:focus-visible {
+    outline: 2px solid #1B6FB3;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom Hatched pattern for Retrospective Certainty */
+.hatched-pattern {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(27, 111, 179, 0.08),
+    rgba(27, 111, 179, 0.08) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.hatched-gap {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(214, 53, 58, 0.06),
+    rgba(214, 53, 58, 0.06) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+/* ECG Pulse Animation */
+@keyframes ecgMove {
+  0% {
+    stroke-dashoffset: 240;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ecg-path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: ecgMove 2.5s linear infinite;
+}
+
+/* Subtle Shimmer for Skeletons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #F0F4F8 25%, #E3EBF2 50%, #F0F4F8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F8FB;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD6E2;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9BB0C1;
+}
+
+/* Recharts styling tweaks */
+.recharts-default-tooltip {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(11, 31, 51, 0.08) !important;
+  border: 1px solid #E3EBF2 !important;
+  font-family: 'IBM Plex Sans', sans-serif !important;
+  font-size: 12px !important;
+}
